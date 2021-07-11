@@ -45,3 +45,26 @@ function.
 ![homepage_3](https://user-images.githubusercontent.com/45265641/125160788-75a7a180-e19c-11eb-864b-72444994a5b3.png)
 ![homepage_4](https://user-images.githubusercontent.com/45265641/125160789-75a7a180-e19c-11eb-97f9-4257c1c7137d.png)
 
+## To run the progrom
+1. Install requirment.txt
+2. Extract venv.rar
+3. Extract q_dict.rar
+4. Extract model.part1.rar 
+5. Create glove_model.pickle by running the below code seperatly
+```python  
+import pickle
+import gensim
+
+!wget http://nlp.stanford.edu/data/glove.840B.300d.zip
+!unzip glove.840B.300d.zip
+
+from gensim.scripts.glove2word2vec import glove2word2vec
+glove2word2vec(glove_input_file="glove.840B.300d.txt", word2vec_output_file="glove_vectors.txt")
+
+from gensim.models.keyedvectors import KeyedVectors
+glove_model = KeyedVectors.load_word2vec_format("glove_vectors.txt", binary=False)
+
+with open('glove_model.pickle','wb') as handle:
+  pickle.dump(glove_model,handle,protocol= pickle.HIGHEST_PROTOCOL )
+  ```
+  
