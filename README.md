@@ -67,4 +67,5 @@ glove_model = KeyedVectors.load_word2vec_format("glove_vectors.txt", binary=Fals
 with open('glove_model.pickle','wb') as handle:
   pickle.dump(glove_model,handle,protocol= pickle.HIGHEST_PROTOCOL )
   ```
-  
+ 6. Open the Simplifier folder in any IDLE
+ 7. Run process.py 
